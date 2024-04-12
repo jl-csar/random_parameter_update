@@ -1,6 +1,6 @@
 # random_parameter_update
 
-# Motivation
+### Motivation
 I had an idea in my mind where we update the weights randomly until we achieve a good solution or combination of these weights. I tried implementing this idea on the MNIST digit dataset by creating a simple neural network from scratch with 3 classic layers (hidden layer has 64 neurons). The algorithm goes something like this: 
 
 
