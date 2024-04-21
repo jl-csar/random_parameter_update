@@ -15,11 +15,13 @@ For the first random search (or iteration), I have a random set of parameters th
 <br>
 
 ### Results
-For the MNIST digit dataset, the model is better than a model randomly predicting the 10 digit classes. A random model should have only 10% percent accuracy on both training and test datasets. The model I trained gained about 62% percent training and test accuracy (or about 6/10). When I got to 60% accuracy, the model started to plateau. I already stopped training at 62% because, although it was still increasing, it was painfully slow.
+For the MNIST digit dataset, the model is better than a model randomly predicting the 10 digit classes. A random model should have only 10% percent accuracy on both training and test datasets. The model I trained gained about 62% percent training and test accuracy (or about 6/10). When I got to 60% accuracy, the model started to plateau. I already stopped training at 62% because, although it was still increasing, it was painfully slow. I only showed here up to 50% accuracy as it would take me time to reach 60%.
 
 Most interestingly, the model did not overfit ever (see picture below). The test accuracy is always higher than the training accuracy by a very small margin. This is because random search introduces noise to searching the optimal parameters which acts as a regularizer, just like how a dropout regularization would do.
 
 This does not involve any gradient descent which is one of the reasons why one epoch is done for roughly two seconds only. Plus, no loss function is calculated which reduces computation time.
+
+In earlier epochs, the accuracy increases fast. However, in later epochs, the accuracy, while still increasing, increases very slowly. At 62%, it was only increasing by about 0.002%
 
 ![Image](https://github.com/jl-csar/random_search_optimization/blob/main/training_results/accuracy%20graph.png)
 
@@ -31,4 +33,6 @@ This does not involve any gradient descent which is one of the reasons why one e
 
 2. The random updates in the MNIST digit classification were done for each parameter. However, one could choose which parameters should be updated. In the case of number 1 above, I randomly chose some parameters (about 40%) of all the trainable parameters. The choice of parameters for every random update / iteration is always different and randomly chosen.
 
-3. The model is plateauing around 62% accuracy and is most probably stuck in a local optima. To solve this, I devised another method which is to let the model explore the search space
+3. The model is plateauing around 62% accuracy and is most probably stuck in a local optima. To solve this, I devised another method which is to let the model explore the search space which I call "branching out". When the model is not finding a better set of parameters than the baseline parameter (the trunk) for a certain number of iterations, the parameters of that iteration becomes the baseline parameters, and another round of iteration happens as usual, and so on, until it creates a branch. If it doesn't find a better set of parameters for that branch, we go back to the original set of parameters (the trunk), and start another branch. This loops until we find an optimal solution. Imagine this is as a tree (or the roots of a tree) with many branches (or roots) that search for solutions within its vicinity.
+
+4. One could also make the range of random update dynamic. In the later epochs of training, I found that minimizing the range leads to faster search of better parameters. However, as mentioned earlier, the increase in accuracy is very small.
