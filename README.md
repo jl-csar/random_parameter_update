@@ -1,9 +1,26 @@
 # random_search_optimization
 
+### Badges:
+
+[![Python](https://img.shields.io/badge/Python-3.8-blue.svg)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-violet.svg)](https://opensource.org/licenses/Apache-2.0)
+
+<br>
+
 ### Motivation
 While I was training a CNN, I had an idea in my mind where we update the weights randomly, without gradient descent and loss function, until we achieve a good solution or combination of these weights. I did not know what this algorithm was while I was implementing it.
 
 Random search is a family of metaheuristic algorithms that rely on sampling random solutions from the search space and keeping the best solution found so far. I tried implementing this idea on the MNIST digit dataset by creating a simple neural network from scratch with 3 classic layers (hidden layer has 64 neurons). I researched on optimization algorithms that resemble the one I implemented. I didn't find an exact resemble, however, I found Particle Swarm Optimization (PSO) to be the closest one to what I did, albeit still far from what I did.
+
+<br>
+
+### Table of Contents
+
+- [Algorithm](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#algorithm)
+- [Results](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#results)
+- [Further Developments and Ideas](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#further-developments-and-ideas)
+- [License](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#license)
 
 <br>
 
@@ -36,3 +53,13 @@ In earlier epochs, the accuracy increases fast. However, in later epochs, the ac
 3. The model is plateauing around 62% accuracy and is most probably stuck in a local optima. To solve this, I devised another method which is to let the model explore the search space which I call "branching out". When the model is not finding a better set of parameters than the baseline parameter (the trunk) for a certain number of iterations, the parameters of that iteration becomes the baseline parameters, and another round of iteration happens as usual, and so on, until it creates a branch. If it doesn't find a better set of parameters for that branch, we go back to the original set of parameters (the trunk), and start another branch. This loops until we find an optimal solution. Imagine this is as a tree (or the roots of a tree) with many branches (or roots) that search for solutions within its vicinity.
 
 4. One could also make the range of random update dynamic. In the later epochs of training, I found that minimizing the range leads to faster search of better parameters. However, as mentioned earlier, the increase in accuracy is very small.
+
+<br>
+
+### License
+
+This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+The Apache License 2.0 is a permissive open-source license that allows you to use, modify, and distribute the software for any purpose, including commercial purposes, as long as you satisfy the conditions of the license.
+
+Copyright 2024 Julius Ceasar Dumaslan. All rights reserved.
