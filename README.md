@@ -17,10 +17,10 @@ Random search is a family of metaheuristic algorithms that rely on sampling rand
 
 ### Table of Contents
 
-- [Algorithm](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#algorithm)
-- [Results](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#results)
-- [Further Developments and Ideas](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#further-developments-and-ideas)
-- [License](https://github.com/jl-csar/random_search_optimization/edit/main/README.md#license)
+- [Algorithm](https://github.com/jl-csar/random_search_optimization/blob/main/README.md#algorithm)
+- [Results](https://github.com/jl-csar/random_search_optimization/blob/main/README.md#results)
+- [Further Developments and Ideas](https://github.com/jl-csar/random_search_optimization/blob/main/README.md#further-developments-and-ideas)
+- [License](https://github.com/jl-csar/random_search_optimization/blob/main/README.md#license)
 
 <br>
 
